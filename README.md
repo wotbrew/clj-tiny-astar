@@ -13,7 +13,7 @@ Clone into a local repository and:
 
 ;;example result, diagonals are punished:
 
-[[0 0] [0 1] [0 2] [0 3] [1 3] [2 3] [3 3]]
+[[0 0] [1 1] [2 2] [3 3]]
 
 ```
 
