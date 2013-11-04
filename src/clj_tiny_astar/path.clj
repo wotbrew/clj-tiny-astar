@@ -82,7 +82,7 @@
                      (not (closed %))))
        (map (fn [p]
               (->Square p
-                        (if (diagonal? loc p) 14 10)
+                        (if (diagonal? loc p) 1.4 1)
                         (manhattan-dist p goal)
                         loc)))))
 
