@@ -17,6 +17,7 @@ Clone into a local repository and:
 
 ```
 
+the predicate function takes a point (tuple of x and y). if searching a grid, you must perform bounds checking yourself obviously!
 
 
 
