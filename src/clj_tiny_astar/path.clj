@@ -3,7 +3,7 @@
         [clojure.data.priority-map :only [priority-map]])
   (:import [java.lang Math]))
 
-(defrecord Cost [f g h])
+
 (defrecord Directions
     [n ne e se s sw w nw])
 
@@ -42,12 +42,6 @@
   [[x0 y0] [x1 y1]]
   (+ (Math/abs ^int(- x1 x0)) (Math/abs ^int(- y1 y0))))
 
-(defn cost
-  [curr start end]
-  (let [g (manhattan-dist start curr)
-        h (manhattan-dist curr end)
-        f (+ g h)]
-    (Cost. f g h)))
 
 (defn vec-add
   [[x y] [x2 y2]]
@@ -123,7 +117,7 @@ pred is a function of point -> bool"
                              (tuple (assoc squares loc a)
                                     open)
                              :else data)))
-                [new-squares new-open] (reduce reducer (tuple squares open) adj)]           
+                [new-squares new-open] (reduce reducer (tuple squares open) adj)]
             (recur (dissoc new-open curr) new-squares (conj closed curr))))))))
 
 
