@@ -1,7 +1,7 @@
 clj-tiny-astar
 ==============
 
-Little a* pathfinder for 2D binary grids. Diagonals are punished, and distance estimation is performed using the manhattan heuristic.
+Little a* pathfinder for 2D binary grids. Diagonals are punished, and distance estimation is performed by default using the manhattan heuristic.
 
 **Usage:**
 
