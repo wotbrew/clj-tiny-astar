@@ -35,9 +35,6 @@
   (let [dirs [:n :ne :e :se :s :sw :w :nw]]
     (map->Directions (into {} (zipmap dirs direction-offsets)))))
 
-(def direction-offsets
-  (map second directions))
-
 (defn vec-add
   [[x y] [x2 y2]]
   (tuple (+ x x2) (+ y y2)))

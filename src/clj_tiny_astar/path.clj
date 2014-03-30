@@ -12,7 +12,6 @@
   [start]
   (priority-map start 0))
 
-(def first-first (comp first first))
 (defrecord Square [loc g h parent])
 (defn f [square] (+ (:g square) (:h square)))
 
@@ -45,7 +44,7 @@ pred is a function of point -> bool"
           squares {b (->Square b 0 0 nil)}
           closed #{}]
      (if-not (empty? open)
-       (let [curr (first-first open)
+       (let [curr (ffirst open)
              curr-square (squares curr)]      
          (if (= curr a)
            (a*-collect-path curr-square squares)
