@@ -27,11 +27,14 @@
                         loc)))))
 
 (defn a*-collect-path
-  [square sq-map]
+  [square sq-map goal]
   (loop [acc [(:loc square)]
          sq square]
     (if-let [parent (sq-map (:parent sq))]
-      (recur (conj acc (:loc parent)) parent)
+      (let [loc (:loc parent)]
+        (if (not= goal loc)
+          (recur (conj acc loc) parent)
+          (conj acc loc)))
       acc)))
 
 
@@ -47,8 +50,8 @@ pred is a function of point -> bool"
        (let [curr (ffirst open)
              curr-square (squares curr)]      
          (if (= curr a)
-           (a*-collect-path curr-square squares)
-           (let [adj (a*-adj-squares dist pred closed curr a)             
+           (a*-collect-path curr-square squares b)
+           (let [adj (a*-adj-squares dist pred closed curr a)
                  reducer (fn [[squares open :as data] a]
                            (let [loc (:loc a)]
                              (cond
