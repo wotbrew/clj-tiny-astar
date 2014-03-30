@@ -22,7 +22,7 @@
 (def direction-offsets
   (let [raw [0 -1
              1 -1
-             1 -1
+             1 0
              1 1
              0 1
              -1 1
