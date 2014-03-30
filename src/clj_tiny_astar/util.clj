@@ -54,11 +54,10 @@
 
 (defn diagonal?
   [[x1 y1] [x2 y2]]
-  (let [a (= (- x1 x2) 0)
-        b (= (- y1 y2) 0)]
+  (let [a (zero? (- x1 x2))
+        b (zero? (- y1 y2))]
    (not (xor a b))))
 
 (defn adj
   [p]
   (map #(vec-add p %) direction-offsets))
-

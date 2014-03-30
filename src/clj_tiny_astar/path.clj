@@ -4,7 +4,9 @@
         [clojure.data.priority-map :only [priority-map]])
   (:import [java.lang Math]))
 
-
+(defn manhattan-dist
+ [[x0 y0] [x1 y1]]
+  (+ (Math/abs ^int(- x1 x0)) (Math/abs ^int(- y1 y0))))
 
 (defn initial-open-set
   [start]
