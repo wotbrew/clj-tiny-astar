@@ -1,6 +1,9 @@
 clj-tiny-astar
 ==============
 
+[![Build Status](https://travis-ci.org/danstone/clj-tiny-astar.png?branch=master)](https://travis-ci.org/danstone/clj-tiny-astar)
+
+
 Little a* pathfinder for 2D binary grids. Diagonals are punished, and distance estimation is performed by default using the manhattan heuristic.
 
 **lein:**
