@@ -55,6 +55,12 @@
         b (zero? (- y1 y2))]
    (not (xor a b))))
 
+(defn in-bounds?
+  [w h [x y]]
+  (and (< -1 x w)
+       (< -1 y h)))
+
 (defn adj
-  [p]
-  (map #(vec-add p %) direction-offsets))
+  [w h p]
+  (->> (map #(vec-add p %) direction-offsets)
+       (filter #(in-bounds? w h %))))

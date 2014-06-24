@@ -1,4 +1,4 @@
-(defproject clj-tiny-astar "0.1.0-SNAPSHOT"
+(defproject clj-tiny-astar "0.1.1-SNAPSHOT"
   :description "a mini a* pather for 2d binary grids"
   :url "http://github.com/danstone/clj-tiny-astar"
   :license {:name "Eclipse Public License"

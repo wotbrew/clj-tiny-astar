@@ -16,8 +16,8 @@
 (defn f [square] (+ (:g square) (:h square)))
 
 (defn a*-adj-squares
-  [dist pred closed loc goal]
-  (->> (adj loc)
+  [[w h] dist pred closed loc goal]
+  (->> (adj w h loc)
        (filter #(and (pred %)
                      (not (closed %))))
        (map (fn [p]
@@ -42,7 +42,7 @@
 (defn a*
 "find a path from a to b given the predicate function 'pred'.
 pred is a function of point -> bool"
-([dist pred a b]
+([bounds dist pred a b]
   (loop [open (initial-open-set b)
           squares {b (->Square b 0 0 nil)}
           closed #{}]
@@ -51,7 +51,7 @@ pred is a function of point -> bool"
              curr-square (squares curr)]      
          (if (= curr a)
            (a*-collect-path curr-square squares b)
-           (let [adj (a*-adj-squares dist pred closed curr a)
+           (let [adj (a*-adj-squares bounds dist pred closed curr a)
                  reducer (fn [[squares open :as data] a]
                            (let [loc (:loc a)]
                              (cond
@@ -64,8 +64,8 @@ pred is a function of point -> bool"
                               :else data)))
                  [new-squares new-open] (reduce reducer (tuple squares open) adj)]
              (recur (dissoc new-open curr) new-squares (conj closed curr))))))))
-([pred a b]
-   (a* manhattan-dist pred a b)))
+([bounds pred a b]
+   (a* bounds manhattan-dist pred a b)))
 
 
 

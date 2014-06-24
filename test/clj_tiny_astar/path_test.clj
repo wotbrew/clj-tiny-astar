@@ -56,13 +56,13 @@
 
 (deftest walk1
   (is (=  [[2 1] [1 2] [2 3] [3 3]]
-          (a* (can-walkf test-grid 6) [2 1] [3 3]))))
+          (a* [6 6] (can-walkf test-grid 6) [2 1] [3 3]))))
 
 (deftest walk2
   (is (=  [[16 21] [16 20] [16 19]]
-          (a* (can-walkf test-grid2 32) [16 21] [16 19]))))
+          (a* [32 32] (can-walkf test-grid2 32) [16 21] [16 19]))))
 
 (deftest walk3
   (is (=[[13 16] [13 17] [14 18] [15 17] [16 17] [17 18] [18 17] [18 16] [19 16] [20 17] [21 18] [22 19] [23 20] [23 21] [23 22]]
-         (a* (can-walkf test-grid2 32) [13 16] [23 22]))))
+         (a* [32 32] (can-walkf test-grid2 32) [13 16] [23 22]))))
 
