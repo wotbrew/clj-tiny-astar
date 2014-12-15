@@ -23,7 +23,7 @@ Clone into a local repository and:
 ;; this is designed to operate on bounded grids
 
 (clj-tiny-astar/a*
-   [4 4] ;;bounds of the grid (with & height)
+   [4 4] ;;bounds of the grid (width & height)
    my-predicate ;;predicate that takes a point [x y] and returns whether a cell is walkable
    [0 0] ;;from
    [3 3] ;;to)
